@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { SignOut } from "@/components/sign-out";
+import { UserInfo } from "@/components/info";
 
 export default function Home() {
   return (
-	  <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-		<h1>Hello world</h1>
-		<Button><Link href="/login">login page</Link></Button>
-    </div>
+	<div className="flex flex-col p-10 gap-3">
+		<h1 className="text-3xl font-bold">A test integration login for UAE PASS</h1>
+		<h2 className="text-2xl">Click on the login button to sign in to a existing uae pass account</h2>
+		<UserInfo />
+		<SignOut />
+	</div>
   );
 }
