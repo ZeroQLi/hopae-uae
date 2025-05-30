@@ -2,6 +2,14 @@ import NextAuth from "next-auth"
 import Discord from "next-auth/providers/discord"
 import GitHub from "next-auth/providers/github"
 
+// Extend the Session type to include 'profile'
+import { Session } from "next-auth"
+declare module "next-auth" {
+  interface Session {
+	profile?: any
+  }
+}
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	providers: [{
 		id: "uae-pass", // signIn("my-provider") and will be part of the callback URL
