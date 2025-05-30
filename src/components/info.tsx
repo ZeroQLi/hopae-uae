@@ -4,7 +4,6 @@ import  { Avatar, AvatarImage } from "./ui/avatar"
 export async function UserInfo() {
 	const session = await auth();
 
-	console.log(session?.user?.name);
 	if (!session?.user) return (
 	<div>
 			<div className="flex flex-col align-left gap-2 p-5 bg-slate-200 rounded-sm">
