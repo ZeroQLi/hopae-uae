@@ -19,10 +19,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 		}, // the authorization URL for the provider
 		token: "https://stg-id.uaepass.ae/idshub/token"	, // the token URL for the provider
 		userinfo: "https://stg-id.uaepass.ae/idshub/userinfo", // the user info URL for the provider
-		
+
 		clientId: process.env.AUTH_UAEPASS_ID, // from the provider's dashboard
 		clientSecret: process.env.AUTH_UAEPASS_SECRET, // from the provider's dashboard
 	  },
 		GitHub, 
 		Discord],
+	callbacks: {
+		async jwt({ token, user, profile }) {
+			if (user) token.user = user
+			if (profile) token.profile = profile
+			return token
+		},
+		async session({ session, token, user }) {
+			if (session.user)
+				session.profile = token.profile;
+			return session;
+		},
+	},
 })
