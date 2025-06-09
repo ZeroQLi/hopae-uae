@@ -17,8 +17,10 @@ export async function UserInfo() {
 			</Avatar>
 			<div className="flex flex-col">
 				<p className="text-2xl font-bold">{session?.profile?.fullnameEN}</p>
+				<p className="text-2xl font-bold">{session?.profile?.fullnameAR}</p>
 				<p className="text-xl text-gray-800">Email: {session?.profile?.email}</p>
 				<p className="text-xl text-gray-800">Gender: {session?.profile?.gender}</p>
+				
 			</div>
 		</div>
 	)
